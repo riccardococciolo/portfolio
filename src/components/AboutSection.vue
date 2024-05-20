@@ -22,6 +22,8 @@ export default {
 
             gsap.set(".block", {
                 scale: .1,
+                yPercent: 50,
+                xPercent: 50,
             })
 
             const tl = gsap.timeline({
@@ -95,7 +97,7 @@ export default {
                         ease: 'power2.inOut',
                     },
                 })
-            }, 10)
+            }, 50)
         }
     },
     computed: {
