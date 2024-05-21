@@ -79,7 +79,7 @@ export default {
                     </linearGradient>
                 </defs>
                 <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" :font-size="size"
-                    font-weight="1000" fill="none" :stroke="`url(#${gradient})`" stroke-width="5">
+                    font-weight="1000" fill="none" :stroke="`url(#${gradient})`" stroke-width="3">
                     {{text}}
                 </text>
             </svg>
