@@ -19,8 +19,9 @@ body {
 
 *::-webkit-scrollbar-thumb {
     -webkit-border-radius: 1ex;
-    background: linear-gradient( black 20%, green);
-    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.75)
+    background: linear-gradient( black , green);
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.75);
+    height: 100px;
 }
 
 *::-webkit-scrollbar-corner {

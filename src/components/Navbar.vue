@@ -6,6 +6,7 @@ export default {
         return {
             links: ["Chi Sono", "Tecnologie", "Formazione ed Esperienza", "Progetti"],
             sidebarOpen: false,
+            navbarHidden: false,
         };
     },
     methods: {
@@ -80,6 +81,11 @@ export default {
             });
             })
         },
+        setNav() {
+            gsap.set("#nav-2", {
+                yPercent: -100,
+            })
+        },
         toggleSidebar() {
             this.sidebarOpen = !this.sidebarOpen;
 
@@ -92,17 +98,74 @@ export default {
         closeSidebar() {
             this.sidebarOpen = false;
         },
-        animateSidebar() {
+        checkNavbarVisibility() {
+            const rect = this.$refs.navbar.getBoundingClientRect();
+            const isVisible = rect.bottom >= 0;
+
+            if (!isVisible && !this.navbarHidden) {
+                this.navbarHidden = true;
+                gsap.to("#nav-2", {
+                    yPercent: 0,
+                })
+            } else if (isVisible && this.navbarHidden) {
+                this.navbarHidden = false;
+                gsap.set("#nav-2", {
+                    yPercent: -100,
+                })
+            }
+        },
+    },
+    computed: {
+        navIn() {
+            if (this.navbarHidden) {
+            }
         }
     },
     mounted() {
         this.navAnimation();
+        this.setNav();
+        window.addEventListener('scroll', this.checkNavbarVisibility);
+        window.addEventListener('resize', this.checkNavbarVisibility);
+        this.checkNavbarVisibility();
     },
 };
 </script>
 
 <template>
-    <div class="nav-container px-4 d-flex justify-content-between align-items-center">
+    <div ref="navbar" class="nav-container px-4 d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <a href=""><img src="../assets/img/logo-portfolio.png" alt=""></a>
+        </div>
+        <div class="d-flex align-items-center d-none d-lg-block">
+            <ul class="d-flex justify-content-center align-items-center gap-5 text-white m-0">
+                <li v-for="link in links" class="" :key="link"><a href="">{{ link }}</a></li>
+            </ul>
+        </div>
+        <div class="d-flex align-items-center gap-4">
+            <a href="">
+                <div class="nav-button">
+                    <a href="">
+                        <div class="btn-overlay"></div>
+                    </a>
+                    <span>Linkedin</span>
+                </div>
+            </a>
+            <span @click="toggleSidebar">
+                <i class="fa-solid fa-bars text-white d-lg-none"></i>
+            </span>
+        </div>
+    </div>
+    <div v-show="sidebarOpen" class="nav-overlay">
+        <div class="sidebar">
+            <div class="side-links p-3 pt-5">
+                <ul class="d-flex flex-column justify-content-center align-items-start gap-4 text-white m-0 ps-4">
+                    <li v-for="link in links" :key="link"><a href="" @click="closeSidebar">{{ link }}</a></li>
+                </ul>
+            </div>
+            <span @click="closeSidebar"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+    </div>
+    <div v-show="navbarHidden" id="nav-2" class="nav-container nav-color px-4 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
             <a href=""><img src="../assets/img/logo-portfolio.png" alt=""></a>
         </div>
@@ -145,6 +208,14 @@ export default {
 
 i {
     font-size: 30px;
+}
+
+.nav-color {
+    background-color: rgb(18, 18, 18);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
 }
 
 .nav-button {
