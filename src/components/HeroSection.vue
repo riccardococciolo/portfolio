@@ -157,7 +157,7 @@ mounted() {
                     </div>
                     <div class="col-lg-6 col-12 m-0 p-0">
                         <div class="img-container d-flex justify-content-center py-5 py-lg-0">
-                            <img id="hero-pp" src="../assets/img/cp_pp-removebg_upscale_hdr (1).png" class="p-0 img-fluid"
+                            <img id="hero-pp" :src="getImgPath('../assets/img/cp_pp-removebg_upscale_hdr (1).png')" class="p-0 img-fluid"
                                 alt="">
                         </div>
                     </div>

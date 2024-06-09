@@ -174,7 +174,7 @@ export default {
     <div v-show="navbarHidden" id="nav-2"
         class="nav-container nav-color px-4 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <a href="#hero"><img src="../assets/img/logo-portfolio.png" alt=""></a>
+            <a href="#hero"><img :src="getImgPath('../assets/img/logo-portfolio.png')" alt=""></a>
         </div>
         <div class="d-flex align-items-center d-none d-lg-block">
             <ul class="d-flex justify-content-center align-items-center gap-5 text-white m-0">
