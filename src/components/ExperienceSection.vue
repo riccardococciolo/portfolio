@@ -101,7 +101,7 @@ export default {
 </script>
 
 <template>
-    <div id="experience" class="container">
+    <div class="container">
         <h2 class="d-none d-lg-block" id="title-experience">FORMAZIONE ED ESPERIENZE</h2>
         <h2 class="d-lg-none">FORMAZIONE ED ESPERIENZE</h2>
         <div class="row justify-content-center align-items-stretch pb-5">

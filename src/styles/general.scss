@@ -1,15 +1,37 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
-* {
-    overflow-x: hidden;
-}
-
 body {
     background-color: black;
-    overflow-x: hidden;
     scrollbar-color: green black;
     scrollbar-width: thin;
-    box-sizing: border-box;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+#cursor {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    width: .5rem;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 999999;
+    top: 200px;
+    left: 200px;
+    pointer-events: none;
+}
+
+#cursor-shadow {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    width: 2.5rem;
+    border: 2px solid white;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+    top: 200px;
+    left: 200px;
+    pointer-events: none;
 }
 
 *::-webkit-scrollbar {

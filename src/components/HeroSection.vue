@@ -104,7 +104,7 @@ mounted() {
 </script>
 
 <template>
-    <section>
+    <section id="hero">
         <div class="background blur-effect">
             <video id="video-bg" src="../assets/img/3-d-paths-lines-1-copy_enhanced (4).webm" autoplay loop
                 muted></video>
@@ -143,11 +143,11 @@ mounted() {
                             <div class="col-12 d-flex justify-content-center justify-content-lg-start gap-5 pe-0 py-5 pb-lg-0">
                                 <div id="hero-btn-1" class="gradient-button">
                                     <div class="gradient-overlay"></div>
-                                    <span>Download CV</span>
+                                    <a href="https://www.linkedin.com/in/riccardo-cocciolo-670606242/"><span>Linkedin</span></a>
                                 </div>
                                 <div id="hero-btn-2" class="gradient-button">
                                     <div class="gradient-overlay"></div>
-                                    <span>Download CV</span>
+                                    <a href="https://github.com/riccardococciolo"><span>Github</span></a>
                                 </div>
                             </div>
                         </div>
@@ -171,6 +171,11 @@ mounted() {
     overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 video {
     width: 100%;
     height: 100%;
@@ -179,7 +184,6 @@ video {
     top: 0px;
     left: 0px;
     z-index: -1;
-    // filter: blur(2px);
 }
 
 .blur-effect {

@@ -123,7 +123,8 @@ export default {
 </script>
 
 <template>
-    <div class="bg-color p-4 py-5 p-lg-5">
+    <section>
+        <div class="bg-color p-4 py-5 p-lg-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 p-0">
@@ -152,6 +153,8 @@ export default {
             </div>
         </div>
     </div>
+    </section>
+    
 </template>
 
 <style lang="scss" scoped>

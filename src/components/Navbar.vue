@@ -1,10 +1,12 @@
 <script>
 import { gsap } from 'gsap';
+import { ScrollToPlugin } from '../../node_modules/gsap/ScrollToPlugin';
+gsap.registerPlugin(ScrollToPlugin);
 
 export default {
     data() {
         return {
-            links: ["Chi Sono", "Tecnologie", "Formazione ed Esperienza", "Progetti"],
+            links: [{ name: "Chi Sono", id: "#about-1" }, { name: "Tecnologie", id: "#tech-1" }, { name: "Formazione ed Esperienza", id: "#experience-1" }, { name: "Progetti", id: "#project-id" }],
             sidebarOpen: false,
             navbarHidden: false,
         };
@@ -40,45 +42,45 @@ export default {
 
             mm.add("(max-width: 768px)", () => {
 
-            tl.fade(".sidebar", {
-                x: "-100%",
-                duration: 1,
-            })
-            tl.fade("ul li:first-child", {
-                x: -100,
-                duration: .7,
-            })
-            .fade("ul li:nth-child(2)", {
-                x: -100,
-                duration: .7,
-            })
-            .fade("ul li:nth-child(3)", {
-                x: -100,
-                duration: .7,
-            })
-            .fade("ul li:nth-child(4)", {
-                x: -100,
-                duration: .7,
-            });
+                tl.fade(".sidebar", {
+                    x: "-100%",
+                    duration: 1,
+                })
+                tl.fade("ul li:first-child", {
+                    x: -100,
+                    duration: .7,
+                })
+                    .fade("ul li:nth-child(2)", {
+                        x: -100,
+                        duration: .7,
+                    })
+                    .fade("ul li:nth-child(3)", {
+                        x: -100,
+                        duration: .7,
+                    })
+                    .fade("ul li:nth-child(4)", {
+                        x: -100,
+                        duration: .7,
+                    });
             })
 
             mm.add("(min-width: 769px)", () => {
                 tl.fade("ul li:first-child", {
-                x: -100,
-                duration: 1.3,
-            })
-            .fade("ul li:nth-child(2)", {
-                x: -100,
-                duration: 1.3,
-            })
-            .fade("ul li:nth-child(3)", {
-                x: -100,
-                duration: 1.3,
-            })
-            .fade("ul li:nth-child(4)", {
-                x: -100,
-                duration: 1.3,
-            });
+                    x: -100,
+                    duration: 1.3,
+                })
+                    .fade("ul li:nth-child(2)", {
+                        x: -100,
+                        duration: 1.3,
+                    })
+                    .fade("ul li:nth-child(3)", {
+                        x: -100,
+                        duration: 1.3,
+                    })
+                    .fade("ul li:nth-child(4)", {
+                        x: -100,
+                        duration: 1.3,
+                    });
             })
         },
         setNav() {
@@ -134,11 +136,11 @@ export default {
 <template>
     <div ref="navbar" class="nav-container px-4 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <a href=""><img src="../assets/img/logo-portfolio.png" alt=""></a>
+            <a href="#hero"><img src="../assets/img/logo-portfolio.png" alt=""></a>
         </div>
         <div class="d-flex align-items-center d-none d-lg-block">
             <ul class="d-flex justify-content-center align-items-center gap-5 text-white m-0">
-                <li v-for="link in links" class="" :key="link"><a href="">{{ link }}</a></li>
+                <li v-for="link in links" class="" :key="link"><a :href="link.id">{{ link.name }}</a></li>
             </ul>
         </div>
         <div class="d-flex align-items-center gap-4">
@@ -147,7 +149,7 @@ export default {
                     <a href="">
                         <div class="btn-overlay"></div>
                     </a>
-                    <span>Linkedin</span>
+                    <a href="https://www.linkedin.com/in/riccardo-cocciolo-670606242/"><span>Linkedin</span></a>
                 </div>
             </a>
             <span @click="toggleSidebar">
@@ -159,19 +161,21 @@ export default {
         <div class="sidebar">
             <div class="side-links p-3 pt-5">
                 <ul class="d-flex flex-column justify-content-center align-items-start gap-4 text-white m-0 ps-4">
-                    <li v-for="link in links" :key="link"><a href="" @click="closeSidebar">{{ link }}</a></li>
+                    <li v-for="link in links" :key="link"><a :href="link.id" @click="closeSidebar">{{ link.name }}</a>
+                    </li>
                 </ul>
             </div>
             <span @click="closeSidebar"><i class="fa-solid fa-xmark"></i></span>
         </div>
     </div>
-    <div v-show="navbarHidden" id="nav-2" class="nav-container nav-color px-4 d-flex justify-content-between align-items-center">
+    <div v-show="navbarHidden" id="nav-2"
+        class="nav-container nav-color px-4 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <a href=""><img src="../assets/img/logo-portfolio.png" alt=""></a>
+            <a href="#hero"><img src="../assets/img/logo-portfolio.png" alt=""></a>
         </div>
         <div class="d-flex align-items-center d-none d-lg-block">
             <ul class="d-flex justify-content-center align-items-center gap-5 text-white m-0">
-                <li v-for="link in links" class="" :key="link"><a href="">{{ link }}</a></li>
+                <li v-for="link in links" class="" :key="link"><a :href="link.id">{{ link.name }}</a></li>
             </ul>
         </div>
         <div class="d-flex align-items-center gap-4">
@@ -180,7 +184,7 @@ export default {
                     <a href="">
                         <div class="btn-overlay"></div>
                     </a>
-                    <span>Linkedin</span>
+                    <a href="https://www.linkedin.com/in/riccardo-cocciolo-670606242/"><span>Linkedin</span></a>
                 </div>
             </a>
             <span @click="toggleSidebar">
@@ -192,7 +196,8 @@ export default {
         <div class="sidebar">
             <div class="side-links p-3 pt-5">
                 <ul class="d-flex flex-column justify-content-center align-items-start gap-4 text-white m-0 ps-4">
-                    <li v-for="link in links" :key="link"><a href="" @click="closeSidebar">{{ link }}</a></li>
+                    <li v-for="link in links" :key="link"><a :href="link.id" @click="closeSidebar">{{ link.name }}</a>
+                    </li>
                 </ul>
             </div>
             <span @click="closeSidebar"><i class="fa-solid fa-xmark"></i></span>
@@ -259,6 +264,11 @@ img {
     width: 80px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 ul {
     list-style: none;
 
@@ -288,7 +298,7 @@ ul {
             top: 20px;
             right: 25px;
             color: rgb(105, 105, 105);
-            
+
             i {
                 font-size: 1.5rem;
             }

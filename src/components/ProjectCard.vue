@@ -58,10 +58,6 @@ export default {
     width: 90%;
 }
 
-.proj-img {
-    // max-height: 200px;
-}
-
 h3 {
     color: green;
     font-size: 2rem;
