@@ -9,6 +9,9 @@ export default {
         }
     },
     methods: {
+        getImgPath(img) {
+            return new URL(`${img}`, import.meta.url).href
+        },
         counter(el, finalNum) {
             const counterElement = document.querySelector(el);
 
@@ -106,7 +109,7 @@ mounted() {
 <template>
     <section id="hero">
         <div class="background blur-effect">
-            <video id="video-bg" src="../assets/img/3-d-paths-lines-1-copy_enhanced (4).webm" autoplay loop
+            <video id="video-bg" :src="getImgPath('../assets/img/3-d-paths-lines-1-copy_enhanced (4).webm')" autoplay loop
                 muted></video>
             <div class="container h-100">
                 <div class="row align-items-center h-100">

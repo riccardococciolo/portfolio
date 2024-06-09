@@ -29,7 +29,7 @@ export default {
             const tl = gsap.timeline({
                 repeat: -1,
                 repeatDelay: 2,
-                delay: 2,
+                delay: 1,
                 yoyo: true,
                 scrollTrigger: {
                     trigger: ".block-container",
