@@ -43,7 +43,6 @@ export default {
                     trigger: "#title-experience",
                     start: 'center center',
                 }
-
             })
         },
         initAnimation() {
