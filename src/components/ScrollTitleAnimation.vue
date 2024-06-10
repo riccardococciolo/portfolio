@@ -43,7 +43,7 @@ export default {
             let mm = gsap.matchMedia();
 
             mm.add("(max-width: 767px)", () => {
-                tl.scrollTrigger.end = '+=1000';
+                tl.scrollTrigger.end = '+=500';
                 tl.fromTo(text, {
                     xPercent: -100,
                 },
@@ -80,7 +80,7 @@ export default {
                     </linearGradient>
                 </defs>
                 <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" :font-size="size"
-                    font-weight="1000" fill="none" :stroke="`url(#${gradient})`" stroke-width="3">
+                    font-weight="1000" fill="none" :stroke="`url(#${gradient})`">
                     {{text}}
                 </text>
             </svg>
