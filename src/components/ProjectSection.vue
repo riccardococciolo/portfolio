@@ -24,7 +24,6 @@ export default {
                     trigger: "#project-container",
                     start: 'center center',
                     scrub: 1,
-                    markers: true,
                     end: '+=2500',
                     pin: true,
                 }

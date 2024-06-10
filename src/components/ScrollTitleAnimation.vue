@@ -34,7 +34,6 @@ export default {
                     trigger: container,
                     start: 'center center',
                     scrub: 1,
-                    markers: true,
                     end: '+=2500',
                     pin: true,
                     toggleActions: 'play pause resume reset',
@@ -44,6 +43,7 @@ export default {
             let mm = gsap.matchMedia();
 
             mm.add("(max-width: 767px)", () => {
+                tl.scrollTrigger.end = '+=1000';
                 tl.fromTo(text, {
                     xPercent: -100,
                 },
@@ -53,6 +53,7 @@ export default {
             })
 
             mm.add("(min-width: 768px)", () => {
+                tl.scrollTrigger.end = '+=2500';
                 tl.fromTo(textL, {
                     xPercent: -100,
                 },

@@ -33,7 +33,6 @@ export default {
                 yoyo: true,
                 scrollTrigger: {
                     trigger: ".block-container",
-                    markers: true,
                     start: "top center",
                     end: "bottom center",
                 }

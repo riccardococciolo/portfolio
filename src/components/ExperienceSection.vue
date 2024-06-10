@@ -41,7 +41,6 @@ export default {
                 stagger: .1,
                 scrollTrigger: {
                     trigger: "#title-experience",
-                    markers: true,
                     start: 'center center',
                 }
 
@@ -61,7 +60,6 @@ export default {
                 scrollTrigger: {
                     trigger: textIn,
                     start: 'start center',
-                    markers: true,
                 },
             })
         },
